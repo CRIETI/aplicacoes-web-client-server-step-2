@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script>
+
+            Highcharts.setOptions({
+                chart: {
+                    backgroundColor: {
+                        linearGradient: [0, 0, 500, 500],
+                        stops: [
+                            [0, 'rgb(255, 255, 255)'],
+                            [1, 'rgb(240, 240, 255)']
+                        ]
+                    },
+                    borderWidth: 2,
+                    plotBackgroundColor: 'rgba(255, 255, 255, .9)',
+                    plotShadow: true,
+                    plotBorderWidth: 1
+                }
+            });
+
+            Highcharts.chart('container', 
+            {
+                title: 
+                {
+                    text: 'Título maneiro do meu gráfico'
+                },
+                xAxis: 
+                {
+                    title: 
+                    {
+                        text: 'Vendas'
+                    },
+                    categories: ['janeiro', 'fevereiro','março','abril','maio']
+                    
+                },
+                series: [
+                {
+                    type: 'line',
+                    name: 'valores',
+                    data: [1, 32, 42,60,15]
+                }]
+            });
+        </script>
+        line, spline, area, areaspline, column, bar, pie, scatter
+    </body>
+</html>
+<!--- line,bar-->

@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script>
+            Highcharts.chart('container', 
+            {
+                title: 
+                {
+                    text: 'Título maneiro do meu gráfico'
+                },
+                series: [
+                {
+                    type: 'scatter',
+                    name: 'valores',
+                    data: [1, 32, 42,60,15]
+                }]
+            });
+        </script>
+        line, spline, area, areaspline, column, bar, pie, scatter
+    </body>
+</html>

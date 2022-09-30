@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script>
+        async function montaGrafico()
+        {
+            let extenso = [];
+            extenso[0] = 'Janeiro';
+            extenso[1] = 'Fevereiro';
+            extenso[2] = 'Março';
+            extenso[3] = 'Abril';
+            extenso[4] = 'Maio';
+            extenso[5] = 'Junho';
+            extenso[6] = 'Julho';
+            extenso[7] = 'Agosto';
+            extenso[8] = 'Setembro';
+            extenso[9] = 'Outubro';
+            extenso[10] = 'Novembro';
+            extenso[11] = 'Dezembro';
+
+            const response = await fetch('https://brasilapi.com.br/api/feriados/v1/2022');
+            const feriados = await response.json();
+
+            console.log(feriados);
+            let meses = [];
+            let totais = [];
+
+            for (let i = 0; i<12; i++)
+            {
+                totais.push(0);
+            }
+
+            for (let i=0; i<feriados.length; i++)
+            {
+                let feriado = feriados[i];
+                let date = feriado.date;
+                let month = parseInt(date.substring(5,7));
+
+                totais[(month-1)] += 1
+                meses.push(month);
+            }
+
+            console.log(meses);
+            console.log(totais);
+
+            Highcharts.chart('container', 
+            {
+                title: 
+                {
+                    text: 'Feriados de 2022'
+                },
+                xAxis: 
+                {
+                    title: 
+                    {
+                        text: 'Meses'
+                    },
+                    categories: extenso
+                    
+                },
+                series: [
+                {
+                    type: 'line',
+                    name: 'Qt feriados',
+                    data: totais
+                }]
+            });
+        }
+
+        montaGrafico();
+        </script></body>
+</html>
