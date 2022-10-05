@@ -1,0 +1,22 @@
+<script>
+    console.log('funcionando!');
+
+    /*localStorage.setItem('nome','Eduardo');
+    let nome = localStorage.getItem('nome');
+    let nomeOutro = localStorage.nome;
+
+    console.log(nome);
+    console.log(nomeOutro);
+
+    let chaveExiste = localStorage.key('nome') == 'nome';
+    console.log("chaveExiste="+chaveExiste);
+    
+    localStorage.removeItem('nome');*/
+
+
+    let produto = {nome: "Bola quadrada",valor: 900.34};
+    localStorage.setItem("produto", JSON.stringify(produto));
+    let produtoOut = JSON.parse(localStorage.getItem("produto"));
+    console.log(produtoOut);
+
+</script>
